@@ -41,36 +41,6 @@ Our solution — **Spot the Scam** — is a smart detection system powered by **
 
 ---
 
-## ⚙️ Setup Instructions
-
-1. **Clone the Repository**
-
-```bash
-git clone https://github.com/your-username/SpotTheScam.git
-cd SpotTheScam
-```
-
-2. **Create a Virtual Environment (Optional but recommended)**
-
-```bash
-python -m venv scam-env
-scam-env\Scripts\activate    # For Windows
-```
-
-3. **Install Dependencies**
-
-```bash
-pip install -r requirements.txt
-```
-
-4. **Run the App Locally**
-
-```bash
-streamlit run app.py
-```
-
----
-
 ## 📁 Google Drive Links (Models, Data, etc.)
 
 * 🔗 **Trained Model & Vectorizer**: [View on Google Drive]()
