@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import joblib
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 # Set up the page
 st.set_page_config(page_title="Spot the Scam", layout="wide")
@@ -46,7 +47,7 @@ st.markdown("""
 # Title
 st.markdown("<div class='main-title'>🚨 Spot the Scam: Job Fraud Detection</div>", unsafe_allow_html=True)
 
-# Sidebar Description
+# Sidebar - About + Model Metrics
 with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/6197/6197833.png", width=100)
     st.markdown("### 🤖 About the Model", unsafe_allow_html=True)
@@ -62,18 +63,44 @@ with st.sidebar:
     </ul>
     </div>
     """, unsafe_allow_html=True)
-
     st.markdown("---")
-    st.markdown("📤 Upload a CSV below to begin scanning job listings:")
+
+# Load model and vectorizer once
+model = joblib.load("model.joblib")
+vectorizer = joblib.load("vectorizer.joblib")
+
+# Load training data and compute metrics
+try:
+    train_df = pd.read_csv("NqndMEyZakuimmFI.csv")
+    train_df['text'] = train_df['title'].fillna('') + ' ' + train_df['description'].fillna('')
+    X_train = vectorizer.transform(train_df['text'])
+    y_true = train_df['fraudulent']
+
+    y_pred = model.predict(X_train)
+
+    acc = accuracy_score(y_true, y_pred)
+    prec = precision_score(y_true, y_pred)
+    rec = recall_score(y_true, y_pred)
+    f1 = f1_score(y_true, y_pred)
+
+    with st.sidebar:
+        st.markdown("### 📊 Model Performance on Training Data")
+        st.write(f"**Accuracy:** {acc:.2f}")
+        st.write(f"**Precision:** {prec:.2f}")
+        st.write(f"**Recall:** {rec:.2f}")
+        st.write(f"**F1-Score:** {f1:.2f}")
+        st.markdown("---")
+        st.markdown("Made with ❤️ by Team **Data Tactations**")
+
+except FileNotFoundError:
+    with st.sidebar:
+        st.error("Training data file `NqndMEyZakuimmFI.csv` not found. Metrics can't be shown.")
 
 # Upload CSV
 uploaded_file = st.file_uploader("📤 Upload job listings (CSV)", type=["csv"])
 
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
-
-    model = joblib.load("model.joblib")
-    vectorizer = joblib.load("vectorizer.joblib")
 
     df['text'] = df['title'].fillna('') + ' ' + df['description'].fillna('')
     X = vectorizer.transform(df['text'])
