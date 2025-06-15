@@ -43,8 +43,8 @@ Our solution — **Spot the Scam** — is a smart detection system powered by **
 
 ## 📁 Google Drive Links (Models, Data, etc.)
 
-* 🔗 **Trained Model & Vectorizer**: [View on Google Drive]()
-* 🔗 **Dataset (if too large for GitHub)**: [View on Google Drive]()
+* 🔗 **Trained Model & Vectorizer**: [View on Google Drive](https://drive.google.com/drive/folders/1-83cSrV12gn9LOMJOOIa6APVSA4Roly2?usp=drive_link)
+* 🔗 **Dataset (if too large for GitHub)**: [View on Google Drive](https://drive.google.com/drive/folders/1pEm2qmr0PKjpIXXHXD4VYmAwOU2nzVdK?usp=drive_link)
 
 ---
 
@@ -106,12 +106,6 @@ Includes:
 * Email alerts for high-risk jobs
 * Auto retrain pipeline when new data is added
 * Deploy via Streamlit Cloud or Hugging Face Spaces
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License** — see the [LICENSE]() file for details.
 
 ---
 
