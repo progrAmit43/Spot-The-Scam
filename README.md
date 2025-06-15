@@ -5,7 +5,7 @@ Model Link : https://spot-the-scam-anveshan-hackathon.streamlit.app/
 
 # 🕵️‍♀️ Spot the Scam
 
-**Team Name:** Data Tactations
+**Team Name:** Data Tacticians
 **Problem Statement:** DS-1 — (Spot the Scam)
 **Team Members:**
 
