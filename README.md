@@ -11,6 +11,7 @@ Model Link : https://spot-the-scam-anveshan-hackathon.streamlit.app/
 
 * Amit Singh
 * Mamta Yadav
+* Shrawani Gulkari
 
 ---
 
